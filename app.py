@@ -64,7 +64,7 @@ def json_example():
     request_data = request.get_json()
     if request_data:
         if 'amount' in request_data:
-            return change(float(request_data['amount']))
+            return jsonify(change(float(request_data['amount'])))
 
     return 'Unknown JSON request'
 
