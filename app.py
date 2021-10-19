@@ -1,6 +1,5 @@
 from flask import Flask
-from flask import jsonify
-import request
+from flask import jsonify, request
 app = Flask(__name__)
 
 def change(amount):
