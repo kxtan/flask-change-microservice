@@ -51,6 +51,13 @@ def changeroute(dollar, cents):
     result = change(float(amount))
     return jsonify(result)
 
+@app.route('/newchange/<dollar>/<cents>')
+def newchangeroute(dollar, cents):
+    print(f"Make New Change for {dollar}.{cents}")
+    amount = f"{dollar}.{cents}"
+    result = new_change(float(amount))
+    return jsonify(result)
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
