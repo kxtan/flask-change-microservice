@@ -24,6 +24,19 @@ def change(amount):
                 res.append({num:coin_lookup[coin]})
     return res
 
+def new_change(amount):
+    
+    old_change = change(amount)
+    new_change = []
+    
+    for old_item in old_change:
+        new_dict = {}
+        for dict_item in old_item.items():
+            new_dict[str(int(dict_item[0])*100)] = new_dict[dict_item[1]]
+        new_change.append(new_dict)
+        
+    return new_change
+
 
 @app.route('/')
 def hello():
