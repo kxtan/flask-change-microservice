@@ -32,7 +32,7 @@ def new_change(amount):
     for old_item in old_change:
         new_dict = {}
         for dict_item in old_item.items():
-            new_dict[str(int(dict_item[0])*100)] = new_dict[dict_item[1]]
+            new_dict[str(int(dict_item[0])*100)] = dict_item[1]
         new_change.append(new_dict)
         
     return new_change
