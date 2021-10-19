@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import jsonify
+import request
 app = Flask(__name__)
 
 def change(amount):
@@ -57,6 +58,16 @@ def newchangeroute(dollar, cents):
     amount = f"{dollar}.{cents}"
     result = new_change(float(amount))
     return jsonify(result)
+
+@app.route('/jsonchange', methods=['POST'])
+def json_example():
+    
+    request_data = request.get_json()
+    if request_data:
+        if 'amount' in request_data:
+            return change(float(request_data['amount']))
+
+    return 'Unknown JSON request'
 
 
 if __name__ == '__main__':
